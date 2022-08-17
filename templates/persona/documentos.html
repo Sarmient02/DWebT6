@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+    <title>Documentos</title>
+{% endblock extrahead %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="title is-1">Lista de Documentos</h1>
+        <div class="columns">
+            <table class="table is-striped has-text-centered is-hoverable is-bordered">
+                <thead>
+                    <tr>
+                        <th class="has-text-centered">id</th>
+                        <th class="has-text-centered">Nombre</th>
+                        <th class="has-text-centered">Descripción</th>
+                        <th class="has-text-centered">Operaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if documentos %}
+                    {% for doc in documentos %}
+                    <tr>
+                        <td>{{doc.id}}</td>
+                        <td>{{doc.nombre}}</td>
+                        <td>{{doc.descripcion}}</td>
+                        <td>asd</td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <style>
+            .table {
+              margin-left: auto;
+              margin-right: auto;
+            }
+        </style>
+        <div class="field"><a href="/documentos/new/" class="button is-success">Crear nuevo documento</a></div>
+    </div>
+{% endblock content %}
