@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOLA!!!</title>
+</head>
+<body>
+    <h1>hola mundo</h1>
+    <p>pruebita</p>
+    <table>
+        <thead>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cedula</td>
+                <td>XD</td>
+            </tr>
+            <tr>
+                <td>TI</td>
+                <td>DX</td>
+            </tr>
+        </tbody>
+    </table>
+    {% if documentos %}
+    <ul>
+        {% for doc in documentos %}
+            <li><b>Nombre:</b>{{doc.nombre}} <b>Descripcion:</b>{{doc.descripcion}}
+        {% endfor %}
+    </ul>
+{% endif %}
+</body>
+</html>
