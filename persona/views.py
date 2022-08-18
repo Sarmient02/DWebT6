@@ -19,7 +19,7 @@ def index(request):
     documentos = TipoDocumento.objects.all()
     template = loader.get_template('persona/index.html')
     context = {
-        'documentos':documentos,
+        'documentos':documentos
     }
     return HttpResponse(template.render(context, request))
 
@@ -54,3 +54,29 @@ def new_document(request):
 
     return render(request, 'persona/create_documentos.html', {'form':form})
 
+def edit_document(request, pk):
+    doc = get_object_or_404(TipoDocumento, pk=pk)
+
+    if request.method == 'POST':
+        form = DocumentosForm(request.POST, instance=doc)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('documentos'))
+    else:
+        form = DocumentosForm(instance=doc)
+
+        return render(request, 'persona/edit_documentos.html', {'form':form})
+
+def delete_document(request, pk):
+
+    TipoDocumento.objects.filter(id=pk).delete()
+
+    documentos = TipoDocumento.objects.all()
+
+    template = loader.get_template('persona/documentos.html')
+
+    context = {
+        'documentos':documentos,
+    }
+    
+    return HttpResponse(template.render(context, request))
