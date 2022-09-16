@@ -3,3 +3,5 @@
 *.pyc
 persona/migrations/__pycache__/__init__.cpython-310.pyc
 *.pyc
+persona/migrations/__pycache__/0001_initial.cpython-310.pyc
+persona/migrations/__pycache__/__init__.cpython-310.pyc
